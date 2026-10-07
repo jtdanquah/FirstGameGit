@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://155xx7s6y6ta"]
+
+[ext_resource type="PackedScene" uid="uid://dlo4ly87kxqye" path="res://scenes/player.tscn" id="1_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://uji71s6e4k6x" path="res://scenes/test level.tscn" id="2_sugp2"]
+[ext_resource type="PackedScene" uid="uid://djigfqvndsggr" path="res://scenes/walking_enemy_1.tscn" id="3_sugp2"]
+
+[sub_resource type="Environment" id="Environment_i00dq"]
+background_mode = 3
+tonemap_mode = 1
+ssr_enabled = true
+ssr_fade_in = 0.5407497
+ssr_depth_tolerance = 2.31
+ssao_enabled = true
+ssao_radius = 2.91
+ssao_intensity = 8.69
+ssao_detail = 2.14
+ssao_horizon = 0.45
+ssao_sharpness = 0.59
+ssao_light_affect = 0.28
+ssao_ao_channel_affect = 0.16
+ssil_enabled = true
+ssil_radius = 5.72
+ssil_intensity = 2.91
+sdfgi_enabled = true
+sdfgi_use_occlusion = true
+sdfgi_read_sky_light = false
+sdfgi_bounce_feedback = 0.59
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 0.06
+glow_strength = 0.58
+glow_bloom = 0.3
+
+[node name="main" type="Node2D" unique_id=1375792428]
+modulate = Color(0.75541985, 0.74747807, 0.9963705, 1)
+self_modulate = Color(0.3023675, 0.58456355, 0.28751504, 0.72156864)
+
+[node name="Node2D" parent="." unique_id=897922311 instance=ExtResource("2_sugp2")]
+position = Vector2(-340, 156)
+
+[node name="Player" parent="." unique_id=1827369860 instance=ExtResource("1_0wfyh")]
+position = Vector2(-38, 477)
+
+[node name="walking enemy 1" parent="." unique_id=394709238 instance=ExtResource("3_sugp2")]
+position = Vector2(70, 525)
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=1218069791]
+rotation = 0.565368
+color = Color(0.45411357, 0.6405938, 0.7547807, 1)
+energy = 1.8
+shadow_enabled = true
+shadow_color = Color(0, 0.0008327344, 0.0027379296, 0.043)
+shadow_filter = 1
+shadow_filter_smooth = 0.8
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=558492900]
+environment = SubResource("Environment_i00dq")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1407103867]
+color = Color(0.33725592, 0.29610348, 0.33039716, 1)

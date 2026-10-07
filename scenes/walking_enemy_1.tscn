@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://djigfqvndsggr"]
+
+[ext_resource type="Texture2D" uid="uid://blyifoxnay7il" path="res://sprites/goofy enemy concept.png" id="1_latbl"]
+[ext_resource type="Script" uid="uid://dawpy6k3mpgfv" path="res://scrips/WALKING ENEMY 1.gd" id="1_orvm8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hkqvn"]
+size = Vector2(12, 19)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_slfep"]
+animations = [{
+"frames": [],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_latbl")
+}],
+"loop": 1,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_20mg3"]
+polygon = PackedVector2Array(-0.33333337, -5.666667, 0.3333333, -4.333334, 0.3333333, -2.3333335, 0.3333333, -1, 0.3333333, 0.33333302, 0.3333333, 4.3333335, -1, 6.3333335, -0.33333337, 7, 0.3333333, 8.333334, 0.3333333, 10.333334, 0.3333333, 12.333334, -0.33333337, 13.666667, -0.33333337, 16.333334, 1.6666667, 16.333334, 1.6666667, 14.333334, 1.6666667, 12.333334, 1, 9.666667, 1, 7.666667, 1.6666667, 5.6666665, 1, 4.3333335, 1, -4.333334, 2.3333335, -6.333334, 2.3333335, -7, -1, -7, -2.3333335, -6.333334)
+
+[node name="walking enemy 1" type="Node2D" unique_id=394709238]
+texture_filter = 1
+scale = Vector2(1.5, 1.5)
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1762404478]
+modulate = Color(2.111951, 2.7075353, 2.7075353, 1)
+self_modulate = Color(0.42892343, 0.5793555, 0.47771218, 0.7254902)
+script = ExtResource("1_orvm8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1663048084]
+position = Vector2(-1, 0.5)
+shape = SubResource("RectangleShape2D_hkqvn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=376584585]
+modulate = Color(1.0171927, 1.0171927, 1.5199014, 1)
+self_modulate = Color(0.58456355, 0.58456355, 0.58456355, 1)
+texture_filter = 1
+position = Vector2(-1, -5)
+sprite_frames = SubResource("SpriteFrames_slfep")
+animation = &"new_animation"
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="CharacterBody2D/AnimatedSprite2D" unique_id=1255306558]
+occluder = SubResource("OccluderPolygon2D_20mg3")
+
+[node name="EdgeCheck" type="RayCast2D" parent="CharacterBody2D" unique_id=474540365]
+position = Vector2(8, 9)
+target_position = Vector2(0, 5)
