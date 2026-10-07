@@ -57,4 +57,4 @@ shadow_filter_smooth = 0.8
 environment = SubResource("Environment_i00dq")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1407103867]
-color = Color(0.33725592, 0.29610348, 0.33039716, 1)
+color = Color(0.05100611, 0.35162684, 0.3973719, 1)
