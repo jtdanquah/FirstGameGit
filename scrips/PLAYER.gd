@@ -6,7 +6,7 @@ func _ready() -> void:
 	jump_smoke.visible = false
 	
 const SPEED = 140
-const JUMP_VELOCITY = -400
+const JUMP_VELOCITY = -350
 const JUMP_CUT_MULTIPLIER = 0.15
 const ACCELERATION = 5000
 const FRICTION = 5500
